@@ -153,7 +153,7 @@ int main(int argc, char** argv)
 	DateProperty miles_davis_birth("birth_date", 26, 5, 1926);
 	for (auto itrec = theRecordManager.cbegin(); itrec != theRecordManager.cend(); ++itrec)
 	{
-		SimpleSearchVisitor<std::less<const BaseProperty&>> searchVis(miles_davis_birth);
+		SimpleSearchVisitor<std::equal_to<const BaseProperty&>> searchVis(miles_davis_birth);
 		itrec->accept(searchVis);
 		for (auto itprop = searchVis.cbegin(); itprop != searchVis.cend(); ++itprop)
 			itprop->accept(streamVis);
